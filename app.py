@@ -8,7 +8,6 @@ import requests
 from PIL import Image
 import io
 
-# IMPORTANT: Replace this with your actual Render API URL
 API_URL = "https://mlops-lab2-latest-kx2m.onrender.com"
 
 def predict_image(image):
@@ -159,7 +158,7 @@ def rotate_image(image, degrees):
 
 
 # Create Gradio interface with tabs
-with gr.Blocks(title="MLOps Lab2 - Image Classification", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
     gr.Markdown(
         """
         # 🖼️ MLOps Lab2 - Image Classification & Processing
