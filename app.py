@@ -187,7 +187,8 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             predict_btn.click(
                 fn=predict_image,
                 inputs=predict_input,
-                outputs=predict_output
+                outputs=predict_output,
+                api_name="predict"
             )
             
 
@@ -206,7 +207,8 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             resize_btn.click(
                 fn=resize_image,
                 inputs=[resize_input, resize_width, resize_height],
-                outputs=resize_output
+                outputs=resize_output,
+                api_name="resize"
             )
         
         # Tab 3: Grayscale
@@ -221,7 +223,8 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             gray_btn.click(
                 fn=grayscale_image,
                 inputs=gray_input,
-                outputs=gray_output
+                outputs=gray_output,
+                api_name="grayscale"
             )
         
         # Tab 4: Rotate
@@ -237,7 +240,8 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             rotate_btn.click(
                 fn=rotate_image,
                 inputs=[rotate_input, rotate_degrees],
-                outputs=rotate_output
+                outputs=rotate_output,
+                api_name="rotate"
             )
     
     gr.Markdown(
