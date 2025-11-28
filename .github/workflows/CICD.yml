@@ -1,4 +1,4 @@
-name: CICD
+name: Docker Build and Push
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
         run: |
           if [ -n "$RENDER_DEPLOY_HOOK_KEY" ]; then
             echo "Triggering Render deployment..."
-            curl -X POST "https://api.render.com/deploy/srv-d4iub14hg0os73a7mbrg?key=toj5u3qiSwk"
+            curl -X POST "https://api.render.com/deploy/srv-d4iub14hg0os73a7mbrg?key=$RENDER_DEPLOY_HOOK_KEY"
             echo "Render deployment triggered successfully!"
           else
             echo "RENDER_DEPLOY_HOOK_KEY not set. Skipping Render deployment."
