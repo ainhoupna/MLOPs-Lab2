@@ -8,6 +8,7 @@ import requests
 from PIL import Image
 import io
 
+# IMPORTANT: Replace this with your actual Render API URL
 API_URL = "https://mlops-lab2-latest-kx2m.onrender.com"
 
 def predict_image(image):
@@ -35,16 +36,16 @@ def predict_image(image):
         
         if response.status_code == 200:
             result = response.json()
-            return f"Predicted Class: **{result['predicted_class']}**"
+            return f"✅ Predicted Class: **{result['predicted_class']}**"
         else:
-            return f"Error: {response.status_code} - {response.text}"
+            return f"❌ Error: {response.status_code} - {response.text}"
             
     except requests.exceptions.Timeout:
-        return "Request timed out. The API might be waking up (cold start). Please try again in a few seconds."
+        return "⏱️ Request timed out. The API might be waking up (cold start). Please try again in a few seconds."
     except requests.exceptions.RequestException as e:
-        return f"Connection Error: {str(e)}"
+        return f"❌ Connection Error: {str(e)}"
     except Exception as e:
-        return f"Error: {str(e)}"
+        return f"❌ Error: {str(e)}"
 
 
 def resize_image(image, width, height):
@@ -161,7 +162,7 @@ def rotate_image(image, degrees):
 with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
     gr.Markdown(
         """
-        # MLOps Lab2 - Image Classification and Processing
+        # 🖼️ MLOps Lab2 - Image Classification & Processing
         
         This application demonstrates a complete MLOps pipeline with:
         - **FastAPI** backend hosted on **Render**
@@ -175,7 +176,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
     
     with gr.Tabs():
         # Tab 1: Prediction
-        with gr.Tab("Predict"):
+        with gr.Tab("🔮 Predict"):
             with gr.Row():
                 with gr.Column():
                     predict_input = gr.Image(type="pil", label="Upload Image")
@@ -192,7 +193,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
 
         
         # Tab 2: Resize
-        with gr.Tab("Resize"):
+        with gr.Tab("📐 Resize"):
             with gr.Row():
                 with gr.Column():
                     resize_input = gr.Image(type="pil", label="Upload Image")
@@ -209,7 +210,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             )
         
         # Tab 3: Grayscale
-        with gr.Tab("Grayscale"):
+        with gr.Tab("⚫ Grayscale"):
             with gr.Row():
                 with gr.Column():
                     gray_input = gr.Image(type="pil", label="Upload Image")
@@ -224,7 +225,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
             )
         
         # Tab 4: Rotate
-        with gr.Tab("Rotate"):
+        with gr.Tab("🔄 Rotate"):
             with gr.Row():
                 with gr.Column():
                     rotate_input = gr.Image(type="pil", label="Upload Image")
@@ -242,7 +243,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
     gr.Markdown(
         """
         ---
-        ### Note
+        ### 📝 Note
         - The first request might take 30-60 seconds due to cold start (free tier limitation)
         - Subsequent requests will be faster
         - API is hosted on Render (free tier)
