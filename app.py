@@ -189,10 +189,7 @@ with gr.Blocks(title="MLOps Lab2 - Image Classification") as demo:
                 outputs=predict_output
             )
             
-            gr.Examples(
-                examples=[],  # Add example images here if you have any
-                inputs=predict_input
-            )
+
         
         # Tab 2: Resize
         with gr.Tab("Resize"):
