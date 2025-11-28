@@ -3,7 +3,7 @@ title: MLOps Lab2 - Image Classification
 colorFrom: indigo
 colorTo: yellow
 sdk: gradio
-sdk_version: 4.44.1
+sdk_version: 5.9.1
 app_file: app.py
 pinned: false
 ---
